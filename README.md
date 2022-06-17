@@ -27,3 +27,8 @@ Password: `kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath=
 ```
 kubectl create namespace production
 ```
+
+## Install argocd defs
+```
+kubectl apply --filename apps.yaml
+````
