@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: devops-paradox
+  name: wiremock
   namespace: argocd
   finalizers:
   - resources-finalizer.argocd.argoproj.io
@@ -9,15 +9,8 @@ spec:
   project: production
   source:
     path: helm
-    repoURL: https://github.com/vfarcic/devops-paradox.git
-    targetRevision: HEAD
-    helm:
-      values: |
-        image:
-          tag: latest
-        ingress:
-          host: devopsparadox.com
-      version: v3
+    repoURL: https://github.com/ereanha/argocd_wiremock_app.git
+    targetRevision: main
   destination:
     namespace: production
     server: https://kubernetes.default.svc
