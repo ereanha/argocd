@@ -8,6 +8,9 @@ metadata:
 spec:
   project: production
   source:
+    helm:
+      valueFiles:
+        - app_nginx_values.yaml
     path: helm
     repoURL: https://github.com/ereanha/argocd_nginx_app.git
     targetRevision: main
