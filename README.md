@@ -6,8 +6,12 @@
 
 ```
 kubectl create namespace argocd
-kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+kubectl apply -n argocd -f install-argocd.yaml
 ```
+[From docs, but gives errors connecting to repos](https://github.com/argoproj/argo-cd/issues/4174)  
+`kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml`
+
+
 
 ## Login
 
@@ -30,5 +34,6 @@ kubectl create namespace production
 
 ## Install argocd defs
 ```
-kubectl apply --filename apps.yaml
+kubectl -n argocd apply --filename project.yaml
+kubectl -n argocd apply --filename apps.yaml
 ````
